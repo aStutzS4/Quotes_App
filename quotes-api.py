@@ -18,8 +18,8 @@ def get_random_quote():
 @app.route('/quotes', methods = ['POST'])
 def add_quote():
     data = request.get_json()
-    print(data)
-    db.query('insert into quotes (text) values (:text)', text=data['text'])
+    db.query('insert into quotes (text) values (:mytext)', mytext=data['text'])
+    #db.query('insert into quotes (text) values (:text)', text=data['text'])
     return 'Created', 201
 
 @app.route('/quotes/<int:id>', methods = ['DELETE'])
